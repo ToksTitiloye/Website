@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pricing — Toks Coaching</title>
+  <meta name="description" content="Coaching packages and prices for League of Legends and VALORANT." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1'%3E%3Cstop stop-color='%23a3e635'/%3E%3Cstop offset='1' stop-color='%236978f0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='48' fill='%23101828'/%3E%3Cpath d='M20 70 L50 20 L80 70 L68 70 L50 42 L32 70z' fill='url(%23g)'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <header class="site-header gradient-bg">
+    <div class="container nav">
+      <a href="index.html" class="logo" aria-label="Toks Coaching Home">
+        <svg class="logo-icon" viewBox="0 0 100 100" aria-hidden="true">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1">
+              <stop stop-color="#a3e635"/><stop offset="1" stop-color="#6978f0"/>
+            </linearGradient>
+          </defs>
+          <circle cx="50" cy="50" r="48" fill="#101828"/>
+          <path d="M20 70 L50 20 L80 70 L68 70 L50 42 L32 70z" fill="url(#g)"/>
+        </svg>
+        <span class="brand">Toks Coaching</span>
+      </a>
+      <nav class="main-nav" aria-label="Primary">
+        <button id="menuToggle" class="menu-toggle" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
+        <ul class="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="pricing.html" aria-current="page">Pricing</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="index.html#booking" class="btn btn-sm">Book</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div id="mobileMenu" class="mobile-menu">
+      <a href="index.html">Home</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="pricing.html" aria-current="page">Pricing</a>
+      <a href="faq.html">FAQ</a>
+      <a href="index.html#booking" class="btn btn-sm">Book</a>
+    </div>
+  </header>
+
+  <main class="section container fade-in">
+
+    <!-- HOW IT WORKS SECTION -->
+    <section class="section how-it-works container gradient-bg-light">
+      <h1 class="section-title" style="font-weight: 800; text-transform: uppercase; margin-bottom: 2rem; color: white;">HOW IT WORKS</h1>
+      <div class="grid steps">
+        <article class="card step">
+          <div class="icon-circle">🎯</div>
+          <h2>Step 1</h2>
+          <h3>Choose the Session Type</h3>
+          <h4> Private 1:1 Coaching(90 mins)</h4>
+          <p>
+            Pick between a 60 min or 90 min private 1:1 coaching session.<br>
+            Ideal for live coaching or VOD reviews.<br>
+            Make sure your Discord connection is stable.
+          </p>
+        </article>
+        <article class="card step">
+          <div class="icon-circle">⚔️</div>
+          <h2>Step 2</h2>
+          <h3>Session Prep & Layout</h3>
+          <p>
+            Once booked, I’ll contact you on Discord 30 mins before.<br>
+            We’ll set goals, review gameplay, and tailor the session.<br>
+            Typical layout: review + live coaching.
+          </p>
+        </article>
+        <article class="card step">
+          <div class="icon-circle">📜</div>
+          <h2>Step 3</h2>
+          <h3>Session Follow-ups</h3>
+          <p>
+            Your VOD is recorded and notes documented.<br>
+            Get personalized feedback and progress tracking.<br>
+            Packages include improvement plans.
+          </p>
+        </article>
+        <article class="card step">
+          <div class="icon-circle">🏆</div>
+          <h2>Step 4</h2>
+          <h3>Climb.</h3>
+          <p>
+            Join hundreds of students who’ve leveled up their gameplay.<br>
+            Consistency + structured coaching = results.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PRICING SECTION -->
+    <h1 class="section-title">Coaching Packages</h1>
+    <p class="muted">Pick the plan that fits your goals and schedule.</p>
+
+    <div class="grid pricing" style="margin-top:16px">
+      <article class="price card hover-pop">
+        <h3>Starter</h3>
+        <p class="price-tag">£29 <span>/ session</span></p>
+        <ul class="bullets" role="list">
+          <li>Single VOD or 60-min live</li>
+          <li>Key takeaways sheet</li>
+        </ul>
+        <a href="index.html#booking" class="btn btn-block btn-gradient">Get started</a>
+      </article>
+      <article class="price card featured hover-pop">
+        <div class="badge">Most popular</div>
+        <h3>Climb</h3>
+        <p class="price-tag">£79 <span>/ month</span></p>
+        <ul class="bullets" role="list">
+          <li>3 sessions (mix VOD/live)</li>
+          <li>Weekly goals & review</li>
+          <li>Priority DM feedback</li>
+        </ul>
+        <a href="index.html#booking" class="btn btn-block btn-gradient">Choose Climb</a>
+      </article>
+      <article class="price card hover-pop">
+        <h3>Pro</h3>
+        <p class="price-tag">£149 <span>/ month</span></p>
+        <ul class="bullets" role="list">
+          <li>6 sessions + scrim plan</li>
+          <li>Custom training program</li>
+          <li>Matchday prep toolkit</li>
+        </ul>
+        <a href="index.html#booking" class="btn btn-block btn-gradient">Go Pro</a>
+      </article>
+    </div>
+
+    <!-- WHAT'S INCLUDED SECTION -->
+    <section class="section" style="padding-top:40px">
+      <h2 class="section-title">What’s included</h2>
+      <div class="grid cards-3">
+        <article class="card hover-pop"><h3>VOD Reviews</h3><p>Timestamped notes and clear next-match objectives.</p></article>
+        <article class="card hover-pop"><h3>Live Coaching</h3><p>Real-time comms, duo options, and post-game breakdowns.</p></article>
+        <article class="card hover-pop"><h3>Training Plans</h3><p>Weekly drills, routines, and progress tracking.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="logo small">
+          <svg class="logo-icon" viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="g2" x1="0" x2="1"><stop stop-color="#a3e635"/><stop offset="1" stop-color="#6978f0"/></linearGradient></defs><circle cx="50" cy="50" r="48" fill="#101828"/><path d="M20 70 L50 20 L80 70 L68 70 L50 42 L32 70z" fill="url(#g2)"/></svg>
+          <span class="brand">Toks Coaching</span>
+        </div>
+        <p class="muted">© <span id="y"></span> Toks Coaching. All rights reserved.</p>
+      </div>
+      <nav aria-label="Footer">
+        <a href="index.html">Home</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="pricing.html" aria-current="page">Pricing</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
