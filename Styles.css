@@ -26,7 +26,22 @@ a{color:inherit;text-decoration:none}
 .cards-3{grid-template-columns:repeat(3,minmax(0,1fr))}
 .cards-2{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media (max-width:900px){.cards-3{grid-template-columns:1fr 1fr}}@media (max-width:640px){.cards-3,.cards-2{grid-template-columns:1fr}}
+.section-title {
+  font-size: clamp(32px, 4vw, 54px);
+  margin: 0 0 24px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: var(--text);
+  text-align: center; /* ✅ Center the heading */
+}
 
+.muted {
+  color: var(--muted);
+  text-align: center; /* ✅ Center subtitle */
+  display: block;
+  margin-bottom: 32px;
+}
 /* ===== Header / Nav ===== */
 .site-header{position:sticky;top:0;z-index:40;background:linear-gradient(180deg, rgba(11,15,26,.95), rgba(11,15,26,.8) 60%, rgba(11,15,26,0));backdrop-filter: blur(10px)}
 .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
@@ -225,5 +240,232 @@ a{color:inherit;text-decoration:none}
   font-size: 1rem;
   font-weight: 700;
   color: var(--text);
-  text-align: center;
+ 
 }
+.how-it-works .step h5 {
+  margin-top: 8px; /* bring it closer to the underline */
+  margin-bottom: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  
+}
+.how-it-works .step p {
+  position: relative;
+  padding-left: 16px;
+  margin: 6px 0;
+  color: #cbd5e1;
+}
+
+.how-it-works .step p::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--brand2);
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+/* Compact bullet spacing for paragraph-based layout */
+.how-it-works .step p {
+  position: relative;
+  padding-left: 18px;       /* keeps space for the bullet */
+  margin: 4px 0;            /* reduce vertical spacing */
+  line-height: 1.5;         /* tighter line spacing */
+  color: #cbd5e1;
+  font-size: 0.95rem;
+}
+
+/* Bullet style */
+.how-it-works .step p::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--brand2);
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+.how-it-works .step p {
+  position: relative;
+  padding-left: 18px;
+  margin: 4px 0;
+  line-height: 1.5;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+}
+
+.how-it-works .step p::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--brand2);
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+/* Session layout alignment and bullet styling */
+.session-layout p {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 4px 0;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* Custom bullet */
+.session-layout p::before {
+  content: "•";
+  flex-shrink: 0;
+  color: var(--brand2); /* your blue accent */
+  font-size: 1.1rem;
+  line-height: 1.3;
+  margin-top: 2px;
+}
+
+/* Optional: smaller gap between header and first bullet list */
+.how-it-works .step h4 {
+  margin-bottom: 6px;
+  margin-top: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.how-it-works .step p.bullet {
+  position: relative;
+  padding-left: 18px; /* space for bullet */
+  margin: 6px 0;
+  line-height: 1.6;
+}
+
+.how-it-works .step p.bullet::before {
+  content: "•";
+  color: var(--brand2); /* your blue accent */
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+/* ===== Pricing Cards (Improved Layout) ===== */
+.pricing {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  margin-top: 2rem;
+}
+
+.price.card {
+  background: #0f1629;
+  border: 1px solid #1e293b;
+  border-radius: 16px;
+  padding: 24px 28px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+}
+
+.price.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(105, 120, 240, 0.25);
+}
+
+/* "Most Popular" Badge */
+.price.card .badge {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: linear-gradient(90deg, var(--brand), var(--brand2));
+  color: #0b0f1a;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+/* Card Titles */
+.price.card h3 {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.price-tag {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #cbd5e1;
+  margin: 0 0 16px;
+}
+
+.price-tag span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Bullet List */
+.bullets {
+  margin: 0 0 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.bullets li {
+  position: relative;
+  padding-left: 16px;
+  margin: 6px 0;
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+.bullets li::before {
+  content: "•";
+  color: var(--brand2);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Buttons */
+.price.card .btn {
+  width: 100%;
+  background: linear-gradient(90deg, var(--brand), var(--brand2));
+  color: #0b0f1a;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 12px 0;
+  border-radius: 10px;
+  transition: all 0.25s ease;
+}
+
+.price.card .btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+/* Responsive Fix */
+@media (min-width: 900px) {
+  .pricing {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+}
+.price-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.price.card:hover .price-img {
+  transform: scale(1.03);
+  opacity: 0.95;
+}
+.price.card.featured .price-img {
+  border: 2px solid var(--brand);
+}
+
