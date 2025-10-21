@@ -7,31 +7,26 @@
   <link rel="stylesheet" href="league.css">
 </head>
 <body>
-  <!-- ===== NAVIGATION BAR ===== -->
-  <header class="navbar">
-    <div class="nav-container">
-      <div class="nav-left">
-        <div class="logo">
-          <div class="logo-icon"></div>
-          <span class="logo-text">TTSMURFS COACHING</span>
-        </div>
+ <div id="navbar"></div>
+<link rel="stylesheet" href="league.css">
+<link rel="stylesheet" href="how.css">
+<script>
+  // Load the navbar.html file into the #navbar div
+  fetch("navbar.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("navbar").innerHTML = data;
 
-        <div class="game-dropdown">
-          <select onchange="location = this.value;">
-            <option value="league.html">LEAGUE OF LEGENDS</option>
-            <option value="valorant.html">VALORANT</option>
-          </select>
-        </div>
-      </div>
+      // Optional: highlight the active link based on current page
+      const currentPage = window.location.pathname.split("/").pop();
+      document.querySelectorAll(".nav-right a").forEach(link => {
+        if (link.getAttribute("href").includes(currentPage)) {
+          link.classList.add("active");
+        }
+      });
+    });
+</script>
 
-      <nav class="nav-right">
-        <a href="#why">WHY TTSMURFS</a>
-        <a href="#how">HOW IT WORKS</a>
-        <a href="#pricing">PRICING</a>
-        <a href="#faq">FAQ</a>
-      </nav>
-    </div>
-  </header>
 
   <!-- ===== HERO SECTION ===== -->
   <section class="hero">
@@ -93,6 +88,106 @@
     <img src="images/ahri.png" alt="League champion " />
   </div>
 </section>
+<section class="rank-pie-section">
+  <h2 class="section-title">Rank Distribution of League Players</h2>
+<p class="player-stat">
+  🌍 Over <strong id="playerCount">0</strong> League Players Worldwide
+</p>
+  <div class="pie-layout">
+
+    <!-- LEFT: PIE CHART -->
+    <div class="pie-container">
+      <div class="pie-chart"></div>
+
+      <ul class="pie-legend">
+        <li><span class="iron"></span> Iron — 14%</li>
+        <li><span class="bronze"></span> Bronze — 17%</li>
+        <li><span class="silver"></span> Silver — 21%</li>
+        <li><span class="gold"></span> Gold — 21%</li>
+        <li><span class="platinum"></span> Platinum — 14%</li>
+        <li><span class="emerald"></span> Emerald — 9.8%</li>
+        <li><span class="diamond"></span> Diamond — 2.4%</li>
+        <li><span class="master"></span> Master — 0.41%</li>
+        <li><span class="grandmaster"></span> Grandmaster — 0.043%</li>
+        <li><span class="challenger"></span> Challenger — 0.018%</li>
+      </ul>
+    </div>
+
+    <!-- RIGHT: COACH HIGHLIGHT -->
+    <div class="coach-side">
+      
+
+      <div class="circle">
+        <h3>Top <span>0.41%</span></h3>
+        <p>of All Ranked Players</p>
+      </div>
+
+      <div class="coach-text">
+        <h2>All Our Coaches Are Among the Best.</h2>
+        <p>
+          Every <strong>TTSmurfs</strong> coach has achieved <strong>Master+</strong> — the top <strong>0.41%</strong>
+          of all players worldwide. You’re learning directly from elite competitors who’ve proven
+          their <strong>skill, mindset, and precision</strong> through thousands of ranked games.
+        </p>
+
+        <div class="coach-badges">
+          <div class="badge master">Master</div>
+          <div class="badge grandmaster">Grandmaster</div>
+          <div class="badge challenger">Challenger</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div id="footer"></div>
+<script>
+fetch("footer.html")
+  .then(res => res.text())
+  .then(html => document.getElementById("footer").innerHTML = html);
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const counter = document.getElementById("playerCount");
+  if (!counter) return;
+
+  const target = 67000000; // total player count
+  const duration = 2500;   // animation duration in ms
+  const frameRate = 30;    // updates per second
+  const totalFrames = Math.round(duration / (1000 / frameRate));
+  let frame = 0;
+  let hasAnimated = false;
+
+  // Count-up logic
+  const animateCount = () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !hasAnimated) {
+          hasAnimated = true;
+          const counterInterval = setInterval(() => {
+            frame++;
+            const progress = frame / totalFrames;
+            const easedProgress = 1 - Math.pow(1 - progress, 3); // smooth ease-out curve
+            const current = Math.floor(easedProgress * target);
+            counter.textContent = current.toLocaleString();
+
+            if (frame >= totalFrames) {
+              clearInterval(counterInterval);
+              counter.textContent = target.toLocaleString();
+            }
+          }, 1000 / frameRate);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    observer.observe(counter);
+  };
+
+  animateCount();
+});
+</script>
 
 
 </body>

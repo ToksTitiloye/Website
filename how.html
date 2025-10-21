@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How It Works — TTSmurfs Coaching</title>
+  <!-- Use the same League stylesheet first -->
+  <link rel="stylesheet" href="league.css">
+  <!-- Then your custom How page CSS -->
+  <link rel="stylesheet" href="how.css">
+</head>
+<body>
+  <div id="navbar"></div>
+
+<script>
+  // Load the navbar.html file into the #navbar div
+  fetch("navbar.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("navbar").innerHTML = data;
+
+      // Optional: highlight the active link based on current page
+      const currentPage = window.location.pathname.split("/").pop();
+      document.querySelectorAll(".nav-right a").forEach(link => {
+        if (link.getAttribute("href").includes(currentPage)) {
+          link.classList.add("active");
+        }
+      });
+    });
+</script>
+
+
+
+  <section class="how-hero">
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+
+  <div class="hero-content">
+    <h1>HOW IT WORKS</h1>
+    <p>Our structured 4-step process transforms players into top performers — no matter your rank.</p>
+  </div>
+</section>
+  <!-- ===== STEPS SECTION ===== -->
+  <section class="steps-section">
+    <div class="steps-container">
+
+      <div class="step-card">
+        <div class="icon">🎯</div>
+        <h2>STEP 1</h2>
+        <h3>Choose the Session Type</h3>
+        <p><strong>Private 1:1 Coaching (90 mins)</strong><br>
+          Enough time for a full, detailed coaching experience — covering gameplay, VOD review, and mindset training.</p>
+        <p><strong>Private 1:1 Coaching (60 mins)</strong><br>
+          Great for VOD reviews or focused topic sessions.<br>
+          <em>We’ll use Discord screen share, so please ensure your connection is stable.</em>
+        </p>
+      </div>
+
+      <div class="step-card">
+        <div class="icon">⚔️</div>
+        <h2>STEP 2</h2>
+        <h3>Session Prep & Layout</h3>
+        <p>Once booked, your coach will reach out on Discord around 30 minutes before the session to prepare and set up.</p>
+        <p><strong>Typical 90-Minute Layout:</strong><br>
+          • Warm-up & goal discussion — 10 mins<br>
+          • Live Coaching — 45 mins<br>
+          • Review & Improvement Plan — 25 mins<br>
+          • Summary & next steps — 10 mins</p>
+        <p><strong>Typical 60-Minute Layout:</strong><br>
+          • 1–2 VOD reviews (uploaded beforehand)<br>
+          • Live coaching + feedback discussion</p>
+      </div>
+
+      <div class="step-card">
+        <div class="icon">📘</div>
+        <h2>STEP 3</h2>
+        <h3>Session Follow-ups</h3>
+        <p>Your coach takes notes and provides follow-up insights for each session.</p>
+        <p><strong>If you’ve booked a package:</strong><br>
+          • Receive personalized progress tracking<br>
+          • Includes ongoing improvement plans and feedback</p>
+      </div>
+
+      <div class="step-card">
+        <div class="icon">🏆</div>
+        <h2>STEP 4</h2>
+        <h3>Climb.</h3>
+        <p>Join hundreds of students who’ve improved through <strong>consistent, structured coaching.</strong><br>
+        Turn your progress into results — step by step.</p>
+      </div>
+
+    </div>
+
+    <div class="cta-container">
+      <a href="league.html" class="back-btn">← Back to League Coaching</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <div id="footer"></div>
+<script>
+fetch("footer.html")
+  .then(res => res.text())
+  .then(html => document.getElementById("footer").innerHTML = html);
+</script>
+</body>
+</html>

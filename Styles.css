@@ -265,3 +265,70 @@ body, main, section, footer {
   display: none !important;
   content: none !important;
 }
+/* ===== NAVBAR ===== */
+.navbar {
+  width: 100%;
+  background: linear-gradient(90deg, #0b0f1a, #101828);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding: 1rem 8%;
+  position: fixed; /* optional if you want it to stay visible */
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between; /* pushes right side to the edge */
+  align-items: center;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* LEFT SIDE: logo + dropdown */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.logo-text {
+  color: #FFD700;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.game-dropdown select {
+  background: none;
+  border: none;
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.game-dropdown select option {
+  color: #000;
+}
+
+/* RIGHT SIDE: links */
+.nav-right {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: flex-end; /* ensures alignment stays to the right */
+}
+
+.nav-right a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.nav-right a:hover {
+  color: #FFD700;
+}
