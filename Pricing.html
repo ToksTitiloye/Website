@@ -1,168 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pricing — Toks Coaching</title>
-  <meta name="description" content="Coaching packages and prices for League of Legends and VALORANT." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1'%3E%3Cstop stop-color='%23a3e635'/%3E%3Cstop offset='1' stop-color='%236978f0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='48' fill='%23101828'/%3E%3Cpath d='M20 70 L50 20 L80 70 L68 70 L50 42 L32 70z' fill='url(%23g)'/%3E%3C/svg%3E" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TTSmurfs — Coaching Pricing</title>
+  <link rel="stylesheet" href="pricing.css">
+  <link rel="stylesheet" href="league.css">
+<link rel="stylesheet" href="how.css">
+
 </head>
 <body>
-  <header class="site-header gradient-bg">
-    <div class="container nav">
-      <a href="index.html" class="logo" aria-label="Toks Coaching Home">
-        <svg class="logo-icon" viewBox="0 0 100 100" aria-hidden="true">
-          <defs>
-            <linearGradient id="g" x1="0" x2="1">
-              <stop stop-color="#a3e635"/><stop offset="1" stop-color="#6978f0"/>
-            </linearGradient>
-          </defs>
-          <circle cx="50" cy="50" r="48" fill="#101828"/>
-          <path d="M20 70 L50 20 L80 70 L68 70 L50 42 L32 70z" fill="url(#g)"/>
-        </svg>
-        <span class="brand">Toks Coaching</span>
-      </a>
-      <nav class="main-nav" aria-label="Primary">
-        <button id="menuToggle" class="menu-toggle" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
-        <ul class="menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="testimonials.html">Testimonials</a></li>
-          <li><a href="pricing.html" aria-current="page">Pricing</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a href="index.html#booking" class="btn btn-sm">Book</a></li>
-        </ul>
-      </nav>
-    </div>
-    <div id="mobileMenu" class="mobile-menu">
-      <a href="index.html">Home</a>
-      <a href="testimonials.html">Testimonials</a>
-      <a href="pricing.html" aria-current="page">Pricing</a>
-      <a href="faq.html">FAQ</a>
-      <a href="index.html#booking" class="btn btn-sm">Book</a>
-    </div>
-  </header>
 
-  <main class="section container fade-in">
+  <!-- ===== NAVBAR PLACEHOLDER ===== -->
+  <div id="navbar"></div>
+  <script>
+  // Load the navbar.html file into the #navbar div
+  fetch("navbar.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("navbar").innerHTML = data;
 
-    <!-- HOW IT WORKS SECTION -->
-    <section class="section how-it-works container gradient-bg-light">
-      <h1 class="section-title" style="font-weight: 800; text-transform: uppercase; margin-bottom: 2rem; color: white;">HOW IT WORKS</h1>
-      <div class="grid steps">
-        <article class="card step">
-          <div class="icon-circle">🎯</div>
-          <h2>Step 1</h2>
-          <h3>Choose the Session Type</h3>
-          <h4> Private 1:1 Coaching(90mins)</h4>
-          <p>
-            Allows enough time for a full session layout, covering all key aspects — including both live coaching and review.
-           
-          </p>
-          <h5> Private 1:1 Coaching(60mins)</h5>
-          <p>
-            Ideal for VOD reviews, though it can also be used for live sessions or general gameplay discussions.
-           <!-- Make sure your Discord connection is stable.-->
-          </p>
-          We’ll use Discord screen share, so please check that your connection is stable beforehand.
-        </article>
-        <article class="card step">
-  <div class="icon-circle">⚔️</div>
-  <h2>Step 2</h2>
-  <h3>Session Prep & Layout</h3>
+      // Optional: highlight the active link based on current page
+      const currentPage = window.location.pathname.split("/").pop();
+      document.querySelectorAll(".nav-right a").forEach(link => {
+        if (link.getAttribute("href").includes(currentPage)) {
+          link.classList.add("active");
+        }
+      });
+    });
+</script>
 
- 
-    Once your session is booked, I’ll reach out via Discord around 30 minutes
-    before the scheduled start to prepare and set up the session.
-  
+  <!-- ===== HERO ===== -->
+  <section class="pricing-hero">
+    <h1>Choose Your Coaching Plan</h1>
+    <p>Tailored sessions designed for every skill level — from Iron to Challenger.</p>
+  </section>
 
-  <h4>Typical 90-Minute Layout:</h4>
+  <!-- ===== 60-MIN SESSIONS ===== -->
+<section class="pricing-section">
+  <h2 class="section-title">60-Minute Coaching Sessions</h2>
+  <div class="pricing-grid">
 
-  <div class="session-layout">
-    <p>Warm-Up & Goal Discussion – 10 mins</p>
-    <p>Live Coaching – 45 mins</p>
-    <p>Targeted Analysis & Improvement Plan – 25 mins</p>
-    <p>Summary & Next Steps – 10 mins</p>
-  </div>
-  <h4>Typical 60-Minute Layout:</h4>
-  <div class="session-layout">
-     <p>1-2 Vod Reviews/OP.GG/VAL TRACKER Review(Upload to YT unlisted before session)</p>
-     <p>Live Coaching + Review</p>
-  </div>
-</article>
-
-        <article class="card step">
-          <div class="icon-circle">📜</div>
-          <h2>Step 3</h2>
-          <h3>Session Follow-ups</h3>
-          
-            Notes are carefully taken and documented throughout your session.<br>
-          
-          <h4>If you’ve booked a package:</h4>
-          <div class="session-layout">
-            <p>You’ll receive personalized feedback and progress tracking.</p>
-            <p>Includes improvement plans</p>
-  </div>
-          
-        </article>
-        <article class="card step">
-          <div class="icon-circle">🏆</div>
-          <h2>Step 4</h2>
-          <h3>Climb.</h3>
-          
-            Join hundreds of students who’ve leveled up their gameplay.<br>
-            <b>Consistency + structured coaching = results.</b>
-          
-        </article>
+    <!-- 1 Session -->
+    <div class="pricing-card">
+      <div class="card-image">
+        <img src="images/yi.jpeg" alt="Master Yi Coaching">
       </div>
-    </section>
+      <div class="session-badge">1 Session</div>
+      <h3>Single Session</h3>
+      <p class="price">€25<span>/ 60 mins</span></p>
+      <ul>
+        <li>VOD Review, gameplay analysis with real-time feedback</li>
+        <li>Champion pool & role focus</li>
+        <li>Personalized notes</li>
+      </ul>
+      <a href="booking.html" class="btn">Book Now</a>
+    </div>
 
-    <!-- PRICING SECTION -->
-    <h1 class="section-title">Coaching Packages</h1>
-    <p class="muted">Pick the plan that fits your goals and schedule.</p>
+    <!-- 2 Sessions -->
+    <div class="pricing-card featured">
+    
+      <div class="card-image">
+        <img src="images/lux.jpg" alt="Lux Coaching">
+      </div>
+      <div class="session-badge">2 Sessions</div>
+      <h3>Double Impact Sessions</h3>
+      
+      <p class="price"> <b>10%</b> discount <br><br>€45<span>/ 2x 60 mins</span></p>
+      <ul>
+        <li><B>Everything from Single Session PLUS:</B></li>
+        <li>Double the improvement with structured follow-ups</li>
+        <li>Mid-to-late game coaching</li>
+        <li>Replay analysis & personalized feedback</li>
+        
+      </ul>
+      <a href="booking.html" class="btn">Book Now</a>
+    </div>
 
- <article class="price card hover-pop">
-  <img src="images/heca.jpg" alt="Starter Plan" class="price-img">
+    <!-- 4 Sessions -->
+    <div class="pricing-card featured">
+      <div class="card-image">
+        <img src="images/redriven.jpg" alt="Riven Coaching">
+      </div>
+      <div class="session-badge">4 Sessions</div>
+      <h3>Transformation Package</h3>
+      <p class="price"><b>15%</b> discount <br><br>€85<span>/ 4x 60 mins</span></p>
+      <ul>
+        <li>Weekly sessions to build lasting improvement</li>
+        <li>Mental discipline & mindset reset</li>
+        <li>Includes a custom improvement plan</li>
+      </ul>
+      <a href="booking.html" class="btn primary">Book Now</a>
+    </div>
 
-  <h4 class="plan-type">Single Session</h4>
-  <h3>Starter</h3>
-  <p class="session-length">1 × 90-minute session</p>
-
-  <div class="session-details">
-    <p>Ideal for focused 1-on-1 coaching.</p>
-    <p>Includes a full live session + detailed feedback.</p>
   </div>
+</section>
 
-  <div class="price-display">€25</div>
-  <a href="index.html#booking" class="btn btn-block btn-gradient">Get started</a>
-</article>
+<!-- ===== 90-MIN SESSIONS ===== -->
+<section class="pricing-section">
+  <h2 class="section-title">90-Minute Deep-Dive Sessions</h2>
+  <div class="pricing-grid">
 
+    <!-- 1 Session -->
+    <div class="pricing-card">
+      <div class="card-image">
+        <img src="images/heca.jpg" alt="Hecarim Coaching">
+      </div>
+      <div class="session-badge">1 Session</div>
+      <h3>Advanced VOD Review</h3>
+      <p class="price">$49 <span>/ 90 mins</span></p>
+      <ul>
+        <li>Full live VOD breakdown</li>
+        <li>Micro & macro correction</li>
+        <li>Includes a ranked improvement plan</li>
+      </ul>
+      <a href="booking.html" class="btn">Book Now</a>
+    </div>
 
+    <!-- 2 Sessions -->
+    <div class="pricing-card featured">
+       
+      <div class="card-image">
+        <img src="images/yassuo.jpg" alt="Thresh Gameplay Coaching">
+      </div>
+      <div class="session-badge">2 Sessions</div>
+      <h3>Elite Gameplay Breakdown</h3>
+      <p class="price">$89 <span>/ 2x 90 mins</span></p>
+      <ul>
+        <li>Deep dive into mechanics & decision-making</li>
+        <li>Replay + live in-game review</li>
+        <li>Coach feedback summary PDF</li>
+      </ul>
+      <a href="booking.html" class="btn">Book Now</a>
+    </div>
 
-  <article class="price card featured hover-pop">
-    <div class="badge">Most popular</div>
-    <img src="images/climb.jpg" alt="Climb Plan" class="price-img">
-    <h3>Climb</h3>
-    <p class="price-tag">£79 <span>/ month</span></p>
-    <ul class="bullets" role="list">
-      <li>3 sessions (mix VOD/live)</li>
-      <li>Weekly goals & review</li>
-      <li>Priority DM feedback</li>
-    </ul>
-    <a href="index.html#booking" class="btn btn-block btn-gradient">Choose Climb</a>
-  </article>
+    <!-- 3 Sessions -->
+    <div class="pricing-card featured">
+      <div class="card-image">
+        <img src="images/zeri.jpg" alt="Jinx Mastery Coaching">
+      </div>
+      <div class="session-badge">3 Sessions</div>
+      <h3>Mastery Package</h3>
+      <p class="price">$129 <span>/ 4x 90 mins</span></p>
+      <ul>
+        <li>Three in-depth sessions with continuous tracking</li>
+        <li>Personalized progression path</li>
+        <li>Exclusive Discord support</li>
+      </ul>
+      <a href="booking.html" class="btn primary">Book Now</a>
+    </div>
 
-  <article class="price card hover-pop">
-    <img src="images/pro.jpg" alt="Pro Plan" class="price-img">
-    <h3>Pro</h3>
-    <p class="price-tag">£149 <span>/ month</span></p>
-    <ul class="bullets" role="list">
-      <li>6 sessions + scrim plan</li>
-      <li>Custom training program</li>
-      <li>Matchday prep toolkit</li>
-    </ul>
-    <a href="index.html#booking" class="btn btn-block btn-gradient">Go Pro</a>
-  </article>
-</div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section">
+  <h2>Climb Smarter. Train Like the Top 1%.</h2>
+  <a href="booking.html" class="btn primary large">Book Your Session →</a>
+</section>
+
+</body> 
+</html>
