@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TTSmurfs — League of Legends Coaching</title>
+  <link rel="stylesheet" href="css/valorant.css">
+</head>
+<body>
+ <div id="navbar"></div>
+<link rel="stylesheet" href="css/valorant.css">
+<link rel="stylesheet" href="css/how.css">
+<link rel="stylesheet" href="css/pricing.css">
+<script>
+  // Load the navbar.html file into the #navbar div
+  fetch("navbar.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("navbar").innerHTML = data;
+
+      // Optional: highlight the active link based on current page
+      const currentPage = window.location.pathname.split("/").pop();
+      document.querySelectorAll(".nav-right a").forEach(link => {
+        if (link.getAttribute("href").includes(currentPage)) {
+          link.classList.add("active");
+        }
+      });
+    });
+</script>
+
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="brand-label">TTSMURFS</p>
+      <h1>
+        <span class="highlight">BREAK FREE</span><br>
+        <span class="highlight">FROM</span><br>
+        <span class="highlight-alt">ELO HELL.</span>
+      </h1>
+      <p class="subtitle">
+        Stuck in low elo?<br><strong>TTSmurfs</strong> shows you the way forward.
+      </p>
+      <a href="booking.html" class="cta-button">START CLIMBING NOW</a>
+      <p class="trusted">Trusted by players across all regions.</p>
+    </div>
+
+    <div class="hero-image">
+      <img src="images/download.png" alt="League Champion" />
+    </div>
+  </section>
+<section class="carry-section">
+  <div class="carry-content">
+    <h1>
+      PLAY SMART.<br>
+      <span>CLIMB FASTER.</span><br>
+      WIN MORE.
+    </h1>
+    <p>
+      Every ranked game is <b>winnable</b>. With <b>TTSmurfs</b>, you’ll develop the Mechanics,
+      Gamesense, and Thought process of top 1% players, step by step.
+    </p>
+
+    <div class="carry-grid">
+      <div class="carry-card">
+        <div class="icon">⚔️</div>
+        <h3>Master Your Mains</h3>
+        <p>In-depth strategies and develop playbooks for your Agents.</p>
+      </div>
+      <div class="carry-card">
+        <div class="icon">🧭</div>
+        <h3>Refine Game Sense</h3>
+        <p>Perfect rotations, map reads, and entrys.</p>
+      </div>
+      <div class="carry-card">
+        <div class="icon">🔥</div>
+        <h3>Crush Tilt</h3>
+        <p>Build mental discipline and consistency to dominate over time.</p>
+      </div>
+      <div class="carry-card">
+        <div class="icon">🏆</div>
+        <h3>Win With Purpose</h3>
+        <p>Set focused improvement goals and watch your rank skyrocket.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="carry-image">
+    <img src="images/yoru1.png" alt="League champion " />
+  </div>
+</section>
+<section class="rank-pie-section">
+  <h2 class="section-title">Rank Distribution of Valorant Players</h2>
+<p class="player-stat">
+  🌍 Over <strong id="playerCount">0</strong> Valorant Players Worldwide
+</p>
+  <div class="pie-layout">
+
+    <!-- LEFT: PIE CHART -->
+    <div class="pie-container">
+      <div class="pie-chart"></div>
+
+      <ul class="pie-legend">
+        <li><span class="iron"></span> Iron — 7%</li>
+        <li><span class="bronze"></span> Bronze — 17%</li>
+        <li><span class="silver"></span> Silver — 22%</li>
+        <li><span class="gold"></span> Gold — 21%</li>
+        <li><span class="platinum"></span> Platinum — 15%</li>
+        <li><span class="diamond"></span> Diamond — 9.8%</li>
+        <li><span class="Ascendent"></span> Ascendant — 4.7%</li>
+        <li><span class="Immortal"></span> Immortal — 1%</li>
+        <li><span class="radiant"></span> radiant — 0.02%</li>
+      </ul>
+    </div>
+
+    <!-- RIGHT: COACH HIGHLIGHT -->
+    <div class="coach-side">
+      
+
+      <div class="circle">
+        <h3>Top <span>0.50%</span></h3>
+        <p>of All Ranked Players</p>
+      </div>
+
+      <div class="coach-text">
+        <h2>All Our Coaches Are Among the Best.</h2>
+        <p>
+          Every <strong>TTSmurfs</strong> coach has achieved <strong>Immortal+</strong> — the top <strong>0.5%</strong>
+          of all players worldwide. You’re learning directly from elite competitors who’ve proven
+          their <strong>skill, mindset, and precision</strong> through thousands of ranked games.
+        </p>
+
+        <div class="coach-badges">
+          <div class="badge master">Master</div>
+          <div class="badge grandmaster">Grandmaster</div>
+          <div class="badge challenger">Challenger</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div id="footer"></div>
+<script>
+fetch("footer.html")
+  .then(res => res.text())
+  .then(html => document.getElementById("footer").innerHTML = html);
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const counter = document.getElementById("playerCount");
+  if (!counter) return;
+
+  const target = 35000000; // total player count
+  const duration = 2500;   // animation duration in ms
+  const frameRate = 30;    // updates per second
+  const totalFrames = Math.round(duration / (1000 / frameRate));
+  let frame = 0;
+  let hasAnimated = false;
+
+  // Count-up logic
+  const animateCount = () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !hasAnimated) {
+          hasAnimated = true;
+          const counterInterval = setInterval(() => {
+            frame++;
+            const progress = frame / totalFrames;
+            const easedProgress = 1 - Math.pow(1 - progress, 3); // smooth ease-out curve
+            const current = Math.floor(easedProgress * target);
+            counter.textContent = current.toLocaleString();
+
+            if (frame >= totalFrames) {
+              clearInterval(counterInterval);
+              counter.textContent = target.toLocaleString();
+            }
+          }, 1000 / frameRate);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    observer.observe(counter);
+  };
+
+  animateCount();
+});
+</script>
+
+
+</body>
+</html>
+
