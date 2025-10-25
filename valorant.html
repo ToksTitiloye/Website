@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TTSmurfs — League of Legends Coaching</title>
-  <link rel="stylesheet" href="css/league.css">
+  <link rel="stylesheet" href="css/valorant.css">
 </head>
 <body>
  <div id="navbar"></div>
-<link rel="stylesheet" href="css/league.css">
+<link rel="stylesheet" href="css/valorant.css">
 <link rel="stylesheet" href="css/how.css">
 <link rel="stylesheet" href="css/pricing.css">
 <script>
@@ -39,14 +39,14 @@
         <span class="highlight-alt">ELO HELL.</span>
       </h1>
       <p class="subtitle">
-        League’s ranking system wants you trapped, <br><strong>TTSmurfs</strong> shows you the way forward.
+        Stuck in low elo?<br><strong>TTSmurfs</strong> shows you the way forward.
       </p>
       <a href="booking.html" class="cta-button">START CLIMBING NOW</a>
       <p class="trusted">Trusted by players across all regions.</p>
     </div>
 
     <div class="hero-image">
-      <img src="images/DRAVEN.png" alt="League Champion" />
+      <img src="images/download.png" alt="League Champion" />
     </div>
   </section>
 <section class="carry-section">
@@ -57,20 +57,20 @@
       WIN MORE.
     </h1>
     <p>
-      Every ranked game is <b>winnable</b>. With <b>TTSmurfs</b>, you’ll develop the precision,
-      mindset, and decision-making of top 1% players, step by step.
+      Every ranked game is <b>winnable</b>. With <b>TTSmurfs</b>, you’ll develop the Mechanics,
+      Gamesense, and Thought process of top 1% players, step by step.
     </p>
 
     <div class="carry-grid">
       <div class="carry-card">
         <div class="icon">⚔️</div>
         <h3>Master Your Mains</h3>
-        <p>In-depth strategies and matchup breakdowns for your champion pool.</p>
+        <p>In-depth strategies and develop playbooks for your Agents.</p>
       </div>
       <div class="carry-card">
         <div class="icon">🧭</div>
         <h3>Refine Game Sense</h3>
-        <p>Perfect rotations, map reads, and pressure control at every stage.</p>
+        <p>Perfect rotations, map reads, and entrys.</p>
       </div>
       <div class="carry-card">
         <div class="icon">🔥</div>
@@ -86,13 +86,13 @@
   </div>
 
   <div class="carry-image">
-    <img src="images/ahri.png" alt="League champion " />
+    <img src="images/yoru1.png" alt="League champion " />
   </div>
 </section>
 <section class="rank-pie-section">
-  <h2 class="section-title">Rank Distribution of League Players</h2>
+  <h2 class="section-title">Rank Distribution of Valorant Players</h2>
 <p class="player-stat">
-  🌍 Over <strong id="playerCount">0</strong> League Players Worldwide
+  🌍 Over <strong id="playerCount">0</strong> Valorant Players Worldwide
 </p>
   <div class="pie-layout">
 
@@ -101,16 +101,15 @@
       <div class="pie-chart"></div>
 
       <ul class="pie-legend">
-        <li><span class="iron"></span> Iron — 14%</li>
+        <li><span class="iron"></span> Iron — 7%</li>
         <li><span class="bronze"></span> Bronze — 17%</li>
-        <li><span class="silver"></span> Silver — 21%</li>
+        <li><span class="silver"></span> Silver — 22%</li>
         <li><span class="gold"></span> Gold — 21%</li>
-        <li><span class="platinum"></span> Platinum — 14%</li>
-        <li><span class="emerald"></span> Emerald — 9.8%</li>
-        <li><span class="diamond"></span> Diamond — 2.4%</li>
-        <li><span class="master"></span> Master — 0.41%</li>
-        <li><span class="grandmaster"></span> Grandmaster — 0.043%</li>
-        <li><span class="challenger"></span> Challenger — 0.018%</li>
+        <li><span class="platinum"></span> Platinum — 15%</li>
+        <li><span class="diamond"></span> Diamond — 9.8%</li>
+        <li><span class="Ascendent"></span> Ascendant — 4.7%</li>
+        <li><span class="Immortal"></span> Immortal — 1%</li>
+        <li><span class="radiant"></span> radiant — 0.02%</li>
       </ul>
     </div>
 
@@ -119,14 +118,14 @@
       
 
       <div class="circle">
-        <h3>Top <span>0.41%</span></h3>
+        <h3>Top <span>0.50%</span></h3>
         <p>of All Ranked Players</p>
       </div>
 
       <div class="coach-text">
         <h2>All Our Coaches Are Among the Best.</h2>
         <p>
-          Every <strong>TTSmurfs</strong> coach has achieved <strong>Master+</strong> — the top <strong>0.41%</strong>
+          Every <strong>TTSmurfs</strong> coach has achieved <strong>Immortal+</strong> — the top <strong>0.5%</strong>
           of all players worldwide. You’re learning directly from elite competitors who’ve proven
           their <strong>skill, mindset, and precision</strong> through thousands of ranked games.
         </p>
@@ -154,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const counter = document.getElementById("playerCount");
   if (!counter) return;
 
-  const target = 67000000; // total player count
+  const target = 35000000; // total player count
   const duration = 2500;   // animation duration in ms
   const frameRate = 30;    // updates per second
   const totalFrames = Math.round(duration / (1000 / frameRate));
