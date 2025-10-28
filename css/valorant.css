@@ -1160,8 +1160,8 @@ body {
 
 .badge:hover { transform: scale(1.1); }
 
-.master { background: linear-gradient(135deg, #a855f7, #9333ea); }
-.grandmaster { background: linear-gradient(135deg, #ff4d6d, #ff6b81); }
+.master { background: linear-gradient(135deg, #f80202, #f10808); }
+.grandmaster { background: linear-gradient(135deg, #002efd, #002fff); }
 .challenger { background: linear-gradient(135deg, #22d3ee, #38bdf8); }
 
 @keyframes pulseGlow {
