@@ -25,6 +25,23 @@
           link.classList.add("active");
         }
       });
+
+      const selction = document.querySelector(".game-dropdown select");
+
+      const navbarpage = currentPage.replace(".html", "");
+      const dropdown = document.querySelector(".game-dropdown select");
+    if (dropdown) {
+      for (let i = 0; i < dropdown.options.length; i++) {
+        const optVal = dropdown.options[i].value.toLowerCase(); // e.g. "valorant.html"
+        if (optVal.includes(currentPage)) {
+          dropdown.options[i].selected = true;
+          break; // optional: stop once we've found the match
+    }
+  }
+} else {
+  console.warn("Dropdown not found in DOM");
+}
+
     });
 </script>
 
