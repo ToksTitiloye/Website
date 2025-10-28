@@ -17,30 +17,55 @@
     .then(response => response.text())
     .then(data => {
       document.getElementById("navbar").innerHTML = data;
+// 1) figure out current game
+const rawPage = window.location.pathname.split("/").pop(); // e.g. "valorant.html"
+const currentGame = (rawPage || "").toLowerCase().includes("valorant") ? "valorant" : "league";
 
-      // Optional: highlight the active link based on current page
-      const currentPage = window.location.pathname.split("/").pop();
-      document.querySelectorAll(".nav-right a").forEach(link => {
-        if (link.getAttribute("href").includes(currentPage)) {
-          link.classList.add("active");
-        }
-      });
+// 2) find elements
+const dropdown = document.querySelector(".game-dropdown select");
+const navRight = document.querySelector(".nav-right");
 
-      const selction = document.querySelector(".game-dropdown select");
-
-      const navbarpage = currentPage.replace(".html", "");
-      const dropdown = document.querySelector(".game-dropdown select");
-    if (dropdown) {
-      for (let i = 0; i < dropdown.options.length; i++) {
-        const optVal = dropdown.options[i].value.toLowerCase(); // e.g. "valorant.html"
-        if (optVal.includes(currentPage)) {
-          dropdown.options[i].selected = true;
-          break; // optional: stop once we've found the match
+// 3) ensure dropdown matches current page
+if (dropdown) {
+  for (let i = 0; i < dropdown.options.length; i++) {
+    if (dropdown.options[i].value.toLowerCase().includes(currentGame)) {
+      dropdown.options[i].selected = true;
+      break;
     }
   }
-} else {
-  console.warn("Dropdown not found in DOM");
 }
+
+// 4) link sets for each game
+const NAV_LINKS = {
+  valorant: [
+    { href: "valorant.html#why",   label: "WHY TTSMURFS" },
+    { href: "valorant-how.html",   label: "HOW IT WORKS" },
+    { href: "valorant-pricing.html", label: "PRICING" },
+    { href: "valorant-faq.html",   label: "FAQ" },
+  ],
+  league: [
+    { href: "league.html#why",     label: "WHY TTSMURFS" },
+    { href: "how.html",            label: "HOW IT WORKS" },
+    { href: "pricing.html",        label: "PRICING" },
+    { href: "#faq",                label: "FAQ" },
+  ],
+};
+
+// 5) render the right-side links for the detected game
+function renderNav(game) {
+  if (!navRight) return;
+  const links = NAV_LINKS[game] || NAV_LINKS.league;
+  navRight.innerHTML = links.map(l => `<a href="${l.href}">${l.label}</a>`).join("");
+
+  // optional: mark the active link
+  const currentPage = window.location.pathname.split("/").pop().toLowerCase();
+  navRight.querySelectorAll("a").forEach(a => {
+    const href = (a.getAttribute("href") || "").toLowerCase();
+    if (href.includes(currentPage)) a.classList.add("active");
+  });
+}
+
+renderNav(currentGame)
 
     });
 </script>
@@ -148,9 +173,8 @@
         </p>
 
         <div class="coach-badges">
-          <div class="badge master">Master</div>
-          <div class="badge grandmaster">Grandmaster</div>
-          <div class="badge challenger">Challenger</div>
+          <div class="badge master">Immortal</div>
+          <div class="badge grandmaster">Radiant</div>
         </div>
       </div>
     </div>
