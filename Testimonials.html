@@ -12,31 +12,70 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1'%3E%3Cstop stop-color='%23a3e635'/%3E%3Cstop offset='1' stop-color='%236978f0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='48' fill='%23101828'/%3E%3Cpath d='M20 70 L50 20 L80 70 L68 70 L50 42 L32 70z' fill='url(%23g)'/%3E%3C/svg%3E" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav">
-      <a href="index.html" class="logo" aria-label="Toks Coaching Home">
-        <svg class="logo-icon" viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#a3e635"/><stop offset="1" stop-color="#6978f0"/></linearGradient></defs><circle cx="50" cy="50" r="48" fill="#101828"/><path d="M20 70 L50 20 L80 70 L68 70 L50 42 L32 70z" fill="url(#g)"/></svg>
-        <span class="brand">Toks Coaching</span>
-      </a>
-      <nav class="main-nav" aria-label="Primary">
-        <button id="menuToggle" class="menu-toggle" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
-        <ul class="menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="testimonials.html" aria-current="page">Testimonials</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a href="index.html#booking" class="btn btn-sm">Book</a></li>
-        </ul>
-      </nav>
-    </div>
-    <div id="mobileMenu" class="mobile-menu" hidden>
-      <a href="index.html">Home</a>
-      <a href="testimonials.html" aria-current="page">Testimonials</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="faq.html">FAQ</a>
-      <a href="index.html#booking" class="btn btn-sm">Book</a>
-    </div>
-  </header>
+<div id="navbar"></div>
+<link rel="stylesheet" href="css/valorant.css">
+<link rel="stylesheet" href="css/how.css">
+<link rel="stylesheet" href="css/pricing.css">
+<script>
+  // Load the navbar.html file into the #navbar div
+  fetch("navbar.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("navbar").innerHTML = data;
+// 1) figure out current game
+const rawPage = window.location.pathname.split("/").pop(); // e.g. "valorant.html"
+const currentGame = (rawPage || "").toLowerCase().includes("valorant") ? "valorant" : "league";
+
+// 2) find elements
+const dropdown = document.querySelector(".game-dropdown select");
+const navRight = document.querySelector(".nav-right");
+
+// 3) ensure dropdown matches current page
+if (dropdown) {
+  for (let i = 0; i < dropdown.options.length; i++) {
+    if (dropdown.options[i].value.toLowerCase().includes(currentGame)) {
+      dropdown.options[i].selected = true;
+      break;
+    }
+  }
+}
+
+// 4) link sets for each game
+const NAV_LINKS = {
+  valorant: [
+    { href: "valorant.html#why",   label: "WHY TTSMURFS" },
+    { href: "valorant-how.html",   label: "HOW IT WORKS" },
+    { href: "valorant-pricing.html", label: "PRICING" },
+    { href: "valorant-Testimonials.html", label: "TESTIMONIALS"},
+    { href: "valorant-faq.html",   label: "FAQ" },
+  ],
+  league: [
+    { href: "league.html#why",     label: "WHY TTSMURFS" },
+    { href: "how.html",            label: "HOW IT WORKS" },
+    { href: "pricing.html",        label: "PRICING" },
+    { href: "Testimonials.html", label: "TESTIMONIALS"},
+    { href: "FAQ.HTML",                label: "FAQ" },
+  ],
+};
+
+// 5) render the right-side links for the detected game
+function renderNav(game) {
+  if (!navRight) return;
+  const links = NAV_LINKS[game] || NAV_LINKS.league;
+  navRight.innerHTML = links.map(l => `<a href="${l.href}">${l.label}</a>`).join("");
+
+  // optional: mark the active link
+  const currentPage = window.location.pathname.split("/").pop().toLowerCase();
+  navRight.querySelectorAll("a").forEach(a => {
+    const href = (a.getAttribute("href") || "").toLowerCase();
+    if (href.includes(currentPage)) a.classList.add("active");
+  });
+}
+
+renderNav(currentGame)
+
+    });
+</script>
 
   <main class="container section">
     <h1 class="section-title">What players say</h1>
@@ -86,12 +125,6 @@
         </div>
         <p class="muted">© <span id="y"></span> Toks Coaching. All rights reserved.</p>
       </div>
-      <nav aria-label="Footer">
-        <a href="index.html">Home</a>
-        <a href="testimonials.html" aria-current="page">Testimonials</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="faq.html">FAQ</a>
-      </nav>
     </div>
   </footer>
 
