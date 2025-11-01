@@ -116,23 +116,12 @@ renderNav(currentGame)
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <div class="logo small">
-          <svg class="logo-icon" viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="g2" x1="0" x2="1"><stop stop-color="#a3e635"/><stop offset="1" stop-color="#6978f0"/></linearGradient></defs><circle cx="50" cy="50" r="48" fill="#101828"/><path d="M20 70 L50 20 L80 70 L68 70 L50 42 L32 70z" fill="url(#g2)"/></svg>
-          <span class="brand">Toks Coaching</span>
-        </div>
-        <p class="muted">© <span id="y"></span> Toks Coaching. All rights reserved.</p>
-      </div>
-      <nav aria-label="Footer">
-        <a href="index.html">Home</a>
-        <a href="testimonials.html" aria-current="page">Testimonials</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="faq.html">FAQ</a>
-      </nav>
-    </div>
-  </footer>
+<div id="footer"></div>
+<script>
+fetch("footer.html")
+  .then(res => res.text())
+  .then(html => document.getElementById("footer").innerHTML = html);
+</script>
 
   <script src="app.js" defer></script>
 </body>
