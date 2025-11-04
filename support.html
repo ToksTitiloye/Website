@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FAQ — TTSmurfs</title>
+  <meta name="description" content="Frequently asked questions about League of Legends and VALORANT coaching with Toks." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/Styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1'%3E%3Cstop stop-color='%23a3e635'/%3E%3Cstop offset='1' stop-color='%236978f0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='48' fill='%23101828'/%3E%3Cpath d='M20 70 L50 20 L80 70 L68 70 L50 42 L32 70z' fill='url(%23g)'/%3E%3C/svg%3E" />
+</head>
+<body>
+<div id="navbar"></div>
+<link rel="stylesheet" href="css/valorant.css">
+<link rel="stylesheet" href="css/how.css">
+<link rel="stylesheet" href="css/pricing.css">
+<script>
+  // Load the navbar.html file into the #navbar div
+  fetch("navbar.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("navbar").innerHTML = data;
+// 1) figure out current game
+const rawPage = window.location.pathname.split("/").pop(); // e.g. "valorant.html"
+const currentGame = (rawPage || "").toLowerCase().includes("valorant") ? "valorant" : "league";
+
+// 2) find elements
+const dropdown = document.querySelector(".game-dropdown select");
+const navRight = document.querySelector(".nav-right");
+
+// 3) ensure dropdown matches current page
+if (dropdown) {
+  for (let i = 0; i < dropdown.options.length; i++) {
+    if (dropdown.options[i].value.toLowerCase().includes(currentGame)) {
+      dropdown.options[i].selected = true;
+      break;
+    }
+  }
+}
+
+// 4) link sets for each game
+const NAV_LINKS = {
+  valorant: [
+    { href: "valorant.html#why",   label: "WHY TTSMURFS" },
+    { href: "valorant-how.html",   label: "HOW IT WORKS" },
+    { href: "valorant-pricing.html", label: "PRICING" },
+    { href: "valorant-Testimonials.html", label: "TESTIMONIALS"},
+    { href: "valorant-faq.html",   label: "FAQ" },
+  ],
+  league: [
+    { href: "league.html#why",     label: "WHY TTSMURFS" },
+    { href: "how.html",            label: "HOW IT WORKS" },
+    { href: "pricing.html",        label: "PRICING" },
+    { href: "Testimonials.html", label: "TESTIMONIALS"},
+    { href: "FAQ.HTML",                label: "FAQ" },
+  ],
+};
+
+// 5) render the right-side links for the detected game
+function renderNav(game) {
+  if (!navRight) return;
+  const links = NAV_LINKS[game] || NAV_LINKS.league;
+  navRight.innerHTML = links.map(l => `<a href="${l.href}">${l.label}</a>`).join("");
+
+  // optional: mark the active link
+  const currentPage = window.location.pathname.split("/").pop().toLowerCase();
+  navRight.querySelectorAll("a").forEach(a => {
+    const href = (a.getAttribute("href") || "").toLowerCase();
+    if (href.includes(currentPage)) a.classList.add("active");
+  });
+}
+
+renderNav(currentGame)
+
+    });
+</script>
+
+
+
+  <main class="container section">
+    <h1 class="section-title">Frequently Asked Questions</h1>
+    <p class="muted">Find answers to common questions about how our coaching works.</p>
+
+    <div class="accordion" data-accordion>
+<details>
+  <summary>Who are these sessions for?</summary>
+  <p>These sessions are for players aiming to improve in <strong>League of Legends</strong> (up to <strong>Master Jungle/adc</strong> and <strong>Diamond</strong> in other roles) and <strong>VALORANT</strong> (all roles, up to <strong>Immortal 3</strong>).</p>
+</details>
+<details>
+  <summary>Does my region matter?</summary>
+  <p>No. I can coach players from any region. Book a time that suits you, and it’ll be automatically translated to my timezone.</p>
+</details>
+<details>
+  <summary>What’s your refund/cancellation policy?</summary>
+  <p>If something comes up and you can’t attend, please cancel 24 hours in advance. I’ll happily reschedule or refund.</p>
+</details>
+      <details>
+        <summary>What games do you coach?</summary>
+        <p>I currently offer coaching for <strong>League of Legends</strong> and <strong>VALORANT</strong>.</p>
+      </details>
+      <details>
+  <summary>Why are you qualified to coach people?</summary>
+  <p>
+    All coaches have reached <strong>Master tier in League of Legends</strong> and consistently maintained <strong>Immortal in VALORANT</strong>.  
+    Over the years, we have <strong>coached more than 100 players</strong> across both games, helping them climb and improve with structured feedback and tailored training.  
+    we have also worked with <strong>new VALORANT teams</strong>, guiding them through fundamentals of teamplay, communication, and strategy.  
+    Our mix of <strong>high-rank experience</strong> and <strong>hands-on coaching</strong> gives us the knowledge to help players at every stage of their journey.
+  </p>
+</details>
+     
+    </div>
+  </main>
+
+<div id="footer"></div>
+<script>
+fetch("footer.html")
+  .then(res => res.text())
+  .then(html => document.getElementById("footer").innerHTML = html);
+</script>
+
+  <script src="app.js" defer></script>
+  <script src="faq.js" defer></script>
+</body>
+</html>
